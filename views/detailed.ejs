@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs') %> 
+<body>
+    <%- include('./partials/nav.ejs')  %>
+    <div class="blogs content">
+        <h3 class="title"><%= title  %> </h3>
+        <p class="snippet"><%= snippet  %></p><br>
+        <p> <%= body %> </p><br>
+        <% const deleteUrl = '/blogs/delete/' + id %> 
+        <h4><a href=<%= deleteUrl %>  class="deleteBlog">Delete</a></h4>
+    </div>
+    <%- include('./partials/footer.ejs') %> 
+</body>
+</html>
