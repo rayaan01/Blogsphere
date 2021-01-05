@@ -3,18 +3,31 @@
 
 <body>
     <%- include('./partials/nav.ejs')%>
-
+    <% if(locals.b_title){ %> 
     <div class="create-blog content">
-        <form action="/blogs" method="POST">
+        <% const updateUrl = "/blogs/update/" + b_id %> 
+        <form action=<%=updateUrl %>  method="POST">
             <label for="title">Blog title:</label>
-            <input type="text" id="title" required name="title">
+            <input type="text" id="title" required name="title" value="<%=b_title %>">
             <label for="snippet">Blog snippet:</label>
-            <input type="text" id="snippet" required name="snippet">
+            <input type="text" id="snippet" required name="snippet" value="<%=b_snippet %>">
             <label for="body">Blog body:</label>
-            <textarea id="body" required name="body"></textarea>
-            <button>Submit</button>
+            <textarea id="body" required name="body"><%=b_body %></textarea>
+            <button>Update</button>
         </form>
     </div>
+    <% } else {%>
+        <div class="create-blog content">
+            <form action="/blogs" method="POST">
+                <label for="title">Blog title:</label>
+                <input type="text" id="title" required name="title">
+                <label for="snippet">Blog snippet:</label>
+                <input type="text" id="snippet" required name="snippet">
+                <label for="body">Blog body:</label>
+                <textarea id="body" required name="body"></textarea>
+                <button>Submit</button>
+            </form>
+    <% } %>        
     <%- include('./partials/footer.ejs')%> 
 </body>
 </html>

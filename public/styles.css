@@ -125,3 +125,14 @@ p{
     padding: 8px;
     color: firebrick;
 }
+
+.updateBlog{
+    border-radius: 50%;
+    padding: 8px;
+    color: blueviolet;
+}
+
+.flex{
+    display: flex;
+    justify-content: center;
+}

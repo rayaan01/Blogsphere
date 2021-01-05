@@ -7,8 +7,12 @@
         <h3 class="title"><%= title  %> </h3>
         <p class="snippet"><%= snippet  %></p><br>
         <p> <%= body %> </p><br>
-        <% const deleteUrl = '/blogs/delete/' + id %> 
-        <h4><a href=<%= deleteUrl %>  class="deleteBlog">Delete</a></h4>
+        <% const deleteUrl = '/blogs/delete/' + id %>
+        <% const updateUrl = '/blogs/update/' + id %>
+        <div class="flex">
+            <h4><a href=<%= deleteUrl %>  class="deleteBlog">Delete</a></h4>
+            <h4><a href=<%= updateUrl %>  class="updateBlog">Update</a></h4>
+        </div>  
     </div>
     <%- include('./partials/footer.ejs') %> 
 </body>

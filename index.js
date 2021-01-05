@@ -7,7 +7,7 @@ app.use(express.urlencoded({extended: true}));
 app.use(express.static('public'));
 app.set('view-engine', 'ejs');
 
-mongoose.connect(blogRoutes.dbURI, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(blogRoutes.dbURI, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false })
 .then(res => {
     console.log("Connected to db");
     app.listen(3000, () => console.log("Server started at port 3000"));

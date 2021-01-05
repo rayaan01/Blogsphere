@@ -45,10 +45,36 @@ const deleteBlog = (req, res) => {
     .catch(err => res.send("Could not delete blog"));
 };
 
+const getUpdateBlog = (req, res) => {
+    Blog.findById(req.params.id)
+    .then(result => {
+        res.render('create.ejs', 
+    {title: 'New Blog',
+    b_title: result.title,
+    b_snippet: result.snippet,
+    b_body: result.body,
+    b_id: result._id
+    });
+    })
+    .catch(err => console.log(err));
+};
+
+const updateBlog = (req, res) => {
+    Blog.findByIdAndUpdate(req.params.id, {
+        title: req.body.title,
+        snippet: req.body.snippet,
+        body: req.body.body
+    })
+    .then(result => res.redirect('/blogs'))
+    .catch(err => res.render('404.ejs'), {title: 'BlogSphere'});
+};
+
 module.exports = {
     getIndex,
     createBlog,
     createForm,
     detailedBlog,
-    deleteBlog
+    deleteBlog,
+    getUpdateBlog,
+    updateBlog
 };
